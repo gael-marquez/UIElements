@@ -15,6 +15,12 @@ class AppViewModel : ViewModel() {
     private val _modoAvanzado = MutableLiveData<Boolean>(false)
     val modoAvanzado: LiveData<Boolean> get() = _modoAvanzado
 
+    private val _userEmail = MutableLiveData<String>()
+    val userEmail: LiveData<String> = _userEmail
+
+    fun setUserEmail(email: String) {
+        _userEmail.value = email
+    }
     fun setUserName(name: String) { _userName.value = name }
     fun setPreferencia(pref: String) { _preferencia.value = pref }
     fun setModoAvanzado(on: Boolean) { _modoAvanzado.value = on }

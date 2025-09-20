@@ -3,6 +3,7 @@ package com.example.uielements
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.example.uielements.databinding.ActivityMainBinding
 import androidx.fragment.app.Fragment
 import com.example.uielements.fragments.TextFieldsFragment
@@ -14,6 +15,7 @@ import com.example.uielements.fragments.InfoFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val appViewModel: AppViewModel by viewModels()
 
     // TAGs opcionales para reutilizar instancias
     private companion object {
@@ -47,7 +49,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSecondActivity.setOnClickListener {
+            val nombre = appViewModel.userName.value ?: ""
+            val correo = appViewModel.userEmail.value ?: ""
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("NOMBRE_USUARIO", nombre)
+            intent.putExtra("CORREO_USUARIO", correo)
             startActivity(intent)
         }
     }

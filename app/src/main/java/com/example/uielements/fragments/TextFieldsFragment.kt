@@ -55,6 +55,7 @@ class TextFieldsFragment : Fragment() {
             return
         }
         appViewModel.setUserName(nombre)
+        appViewModel.setUserEmail(email)
         Toast.makeText(requireContext(), "Guardado: $nombre / $email", Toast.LENGTH_SHORT).show()
     }
 

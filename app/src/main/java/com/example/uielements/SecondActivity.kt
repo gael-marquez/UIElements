@@ -44,15 +44,13 @@ class SecondActivity : AppCompatActivity() {
     private fun receiveDataFromPreviousActivity() {
         // Recibir datos enviados desde el Activity anterior
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO")
-        val numeroContador = intent.getIntExtra("CONTADOR", 0)
-        val esVip = intent.getBooleanExtra("ES_VIP", false)
+        val correoUsuario = intent.getStringExtra("CORREO_USUARIO")
 
         // Mostrar los datos recibidos
         binding.tvDataReceived.text = """
             Datos recibidos:
             Nombre: ${nombreUsuario ?: "No especificado"}
-            Contador: $numeroContador
-            Es VIP: $esVip
+            Correo: $correoUsuario
         """.trimIndent()
     }
 
